@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>見積書</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="sheet">
+      <div class="margin-container">
+        <div id="date-and-number">
+        </div>
+        <h1 id="h1">jsonファイルを選択してください。</h1>
+        <input type="file" id="file" accept="application/json">
+        <header>
+          <div id="header-left">
+          </div>
+          <div id="header-right">
+          </div>
+        </header>
+        <div id="table-container"></div>
+        <footer>
+          <dl id="remarks">
+          </dl>
+        </footer>
+      </div>
+    </div>
+    <script src="./src/main.js" type="module"></script>
+  </body>
+</html>
