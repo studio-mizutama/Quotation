@@ -49,7 +49,7 @@ Make `json` file like this format.
 "client":
   {
     "name": "<Client name>",
-    "title": "Title "
+    "title": "<Title>"
   },
 "dateAndNumbers": 
   {
