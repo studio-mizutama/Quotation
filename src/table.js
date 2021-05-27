@@ -58,7 +58,7 @@ export default class QuotationTable {
       table.appendChild(tr);
     }
 
-    this.tax = this.subTotal * 0.1;
+    this.tax = Math.round(this.subTotal * 0.1);
     this.grandTotal = this.subTotal + this.tax;
 
     for (let i = 0; i < 4; i++) {
