@@ -11,12 +11,12 @@ Write your company's information in `cofig/config.js`.
 ```js
 const company = 
   {
-    "name": "Your company name",
+    "name": "<Your company name>",
     "zipCode": "",
     "address": "",
     "tel": "",
     "logoPath": "./images/logo.svg",
-    "stampPath": "./images/stamp.svg"
+    "sealPath": "./images/seal.svg"
   };
 
   export default company;
@@ -24,9 +24,9 @@ const company =
 
 ### Set Images
 
-Save your campany's logo and stamp images to `images/`.
+Save your campany's logo and seal images to `images/`.
 
-### Make json file
+### Make `json` file
 
 Make `json` file like this format.
 
@@ -48,7 +48,7 @@ Make `json` file like this format.
 ],
 "client":
   {
-    "name": "Client name",
+    "name": "<Client name>",
     "title": "Title "
   },
 "dateAndNumbers": 
@@ -64,7 +64,7 @@ Make `json` file like this format.
 
 ## Run
 
-This app uses ESmodules. So you shoud to run local server to use this app.
+This app uses ESmodules. So you shoud run local server to use this app.
 
 for example
 
