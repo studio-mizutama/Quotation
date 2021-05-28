@@ -19,23 +19,28 @@ export default class DateAndNumber {
     this.delivery.textContent = json["delivery"];
     this.payment.textContent = json["payment"];
 
-    let dateAndNumber = document.getElementById("date-and-number");
-    let remarks = document.getElementById("remarks");
-    let validUntil = document.createElement("dt");
-    let delivery = document.createElement("dt");
-    let payment = document.createElement("dt");
-    validUntil.textContent = "有効期限";
-    delivery.textContent = "納期";
-    payment.textContent = "支払条件";
-
-    dateAndNumber.appendChild(this.date);
-    dateAndNumber.appendChild(this.no);
-
-    remarks.appendChild(validUntil);
-    remarks.appendChild(this.validUntil);
-    remarks.appendChild(delivery);
-    remarks.appendChild(this.delivery);
-    remarks.appendChild(payment);
-    remarks.appendChild(this.payment);
+    this.dateAndNumber = document.getElementById("date-and-number");
+    this.remarks = document.getElementById("remarks");
+    this.validUntilDt = document.createElement("dt");
+    this.deliveryDt = document.createElement("dt");
+    this.paymentDt = document.createElement("dt");
+    this.validUntilDt.textContent = "有効期限";
+    this.deliveryDt.textContent = "納期";
+    this.paymentDt.textContent = "支払条件";
+    this.remove();
+  }
+  show() {
+    this.dateAndNumber.appendChild(this.date);
+    this.dateAndNumber.appendChild(this.no);
+    this.remarks.appendChild(this.validUntilDt);
+    this.remarks.appendChild(this.validUntil);
+    this.remarks.appendChild(this.deliveryDt);
+    this.remarks.appendChild(this.delivery);
+    this.remarks.appendChild(this.paymentDt);
+    this.remarks.appendChild(this.payment);
+  }
+  remove() {
+    this.dateAndNumber.innerHTML = "";
+    this.remarks.innerHTML = "";
   }
 }

@@ -14,7 +14,7 @@ export default class MyCompany {
     this.address = document.createElement("p");
     this.tel = document.createElement("p");
 
-    let headerRight = document.getElementById("header-right");
+    this.headerRight = document.getElementById("header-right");
     
     this.logoImg.setAttribute("src", json["logoPath"]);
     this.sealImg.setAttribute("src", json["sealPath"]);
@@ -30,12 +30,19 @@ export default class MyCompany {
     this.address.textContent = json["address"];
     this.tel.textContent = "TEL: " + json["tel"];
 
-    headerRight.appendChild(this.logo);
-    headerRight.appendChild(this.name);
-    headerRight.appendChild(this.zipCode);
-    headerRight.appendChild(this.address);
-    headerRight.appendChild(this.tel);
-    headerRight.appendChild(this.sealImg);
-    headerRight.style.position = "relative";
+    this.headerRight.style.position = "relative";
+
+    this.remove();
+  }
+  show() {
+    this.headerRight.appendChild(this.logo);
+    this.headerRight.appendChild(this.name);
+    this.headerRight.appendChild(this.zipCode);
+    this.headerRight.appendChild(this.address);
+    this.headerRight.appendChild(this.tel);
+    this.headerRight.appendChild(this.sealImg);
+  }
+  remove() {
+    this.headerRight.innerHTML = "";
   }
 }

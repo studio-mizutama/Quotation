@@ -14,12 +14,18 @@ export default class ClientCompany {
     this.name.textContent = json["name"] + "　御中";
     this.title.textContent = "件名：　" + json["title"];
     this.total.textContent = "お見積金額：　" + grandTotal + " 円";
-    let p = document.createElement("p");
-    p.textContent = "下記の通り、お見積もり申し上げます。";
-    let headerLeft = document.getElementById("header-left");
-    headerLeft.appendChild(this.name);
-    headerLeft.appendChild(this.title);
-    headerLeft.appendChild(p);
-    headerLeft.appendChild(this.total);
+    this.p = document.createElement("p");
+    this.p.textContent = "下記の通り、お見積もり申し上げます。";
+    this.headerLeft = document.getElementById("header-left");
+    this.remove();
+  }
+  show() {
+    this.headerLeft.appendChild(this.name);
+    this.headerLeft.appendChild(this.title);
+    this.headerLeft.appendChild(this.p);
+    this.headerLeft.appendChild(this.total);
+  }
+  remove() {
+    this.headerLeft.innerHTML = "";
   }
 }

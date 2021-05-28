@@ -9,7 +9,7 @@ export default class QuotationTable {
     /**
       * @type {HTMLDocument} Table要素
       */
-    let table = document.createElement("table");
+    this.table = document.createElement("table");
     /**
      * @type {HTMLDocument} tr要素
      */
@@ -26,7 +26,7 @@ export default class QuotationTable {
     let th = document.createElement("th");
     th.textContent = "金額"
     tr.appendChild(th);
-    table.appendChild(tr);
+    this.table.appendChild(tr);
 
     /**
      * @type {number} 小計
@@ -55,7 +55,7 @@ export default class QuotationTable {
       this.subTotal += total;
       td.textContent = this.comma(total);
       tr.appendChild(td);
-      table.appendChild(tr);
+      this.table.appendChild(tr);
     }
 
     this.tax = Math.round(this.subTotal * 0.1);
@@ -110,10 +110,11 @@ export default class QuotationTable {
         }
         tr.appendChild(td);
       }
-      table.appendChild(tr);
+      this.table.appendChild(tr);
     }
 
-    document.getElementById("table-container").appendChild(table);
+    this.tableContainer = document.getElementById("table-container");
+    this.remove();
   }
 
   /**
@@ -122,5 +123,11 @@ export default class QuotationTable {
    */
   comma(n) {
     return String(n).replace( /(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
+  }
+  show() {
+    this.tableContainer.appendChild(this.table);
+  }
+  remove() {
+    this.tableContainer.innerHTML = "";
   }
 }
