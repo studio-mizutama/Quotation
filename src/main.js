@@ -5,9 +5,9 @@ import DateAndNumber from "./date.js"
 import company from "../config/config.js"
 
 
-const input = document.getElementById("file");
+const input = document.getElementById("input-file");
 
-input.addEventListener("change", function(e) {
+input.addEventListener("change", function() {
   const result = input.files;
   const reader = new FileReader();
   reader.readAsText(result[0]);
