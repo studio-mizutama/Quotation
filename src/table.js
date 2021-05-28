@@ -10,13 +10,15 @@ export default class QuotationTable {
       * @type {HTMLDocument} Table要素
       */
     this.table = document.createElement("table");
+
+    const object = {description: "項目", quantity: "数量", unit: "単位", price: "単価"}
     /**
      * @type {HTMLDocument} tr要素
      */
     let tr = document.createElement("tr");
     for (const key in json[0]) {
       let th = document.createElement("th");
-      th.textContent = key;
+      th.textContent = object[key];
       tr.appendChild(th);
       }
 
@@ -47,11 +49,11 @@ export default class QuotationTable {
       let tr = document.createElement("tr");
       for (const key in json[0]) {
             let td = document.createElement("td");
-            (key == "単価")? td.textContent = this.comma(json[i][key]): td.textContent = json[i][key];
+            (key == "price")? td.textContent = this.comma(json[i][key]): td.textContent = json[i][key];
             tr.appendChild(td);
           }
       let td = document.createElement("td");
-      let total = JSON.parse(json[i]["数量"]) * JSON.parse(json[i]["単価"]);
+      let total = JSON.parse(json[i]["quantity"]) * JSON.parse(json[i]["price"]);
       this.subTotal += total;
       td.textContent = this.comma(total);
       tr.appendChild(td);

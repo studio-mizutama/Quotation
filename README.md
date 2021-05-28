@@ -34,16 +34,16 @@ Make `json` file like this format.
 {
   "details": [
   {
-    "項目": "",
-    "数量": 1,
-    "単位": "式",
-    "単価": 100
+    "description": "",
+    "quantity": 1,
+    "unit": "式",
+    "price": 100
   },
   {
-    "項目": "",
-    "数量": 1,
-    "単位": "式",
-    "単価": 100
+    "description": "",
+    "quantity": 1,
+    "unit": "式",
+    "price": 100
   },
 ],
 "client":
