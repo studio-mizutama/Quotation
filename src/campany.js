@@ -18,7 +18,8 @@ export default class MyCompany {
     
     this.logoImg.setAttribute("src", json["logoPath"]);
     this.sealImg.setAttribute("src", json["sealPath"]);
-    this.logoImg.style.width = "100%";
+    this.logoImg.style.maxWidth = "100%";
+    this.logoImg.style.maxHeight = "10mm";
     this.sealImg.style.zIndex = 2;
     this.sealImg.style.position = "absolute";
     this.sealImg.style.width = "21mm";

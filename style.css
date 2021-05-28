@@ -80,6 +80,7 @@ dd {
 
 .margin-container {
   margin: 5mm;
+  width: 200mm;
   position: absolute;
   top: 0;
   left: 0;
