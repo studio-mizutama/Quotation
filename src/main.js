@@ -4,12 +4,50 @@ import ClientCompany from "./client.js"
 import DateAndNumber from "./date.js"
 import company from "../config/config.js"
 
+/**
+ * @param {number} 1: 見積書 2:納品書 3:請求書
+ */
+let type = 1;
+
+/**
+ * @param {boolean}
+ */
+let display = false;
+
+let result = [];
 
 const input = document.getElementById("input-file");
 
+const tab1 = document.getElementById("tab1");
+const tab2 = document.getElementById("tab2");
+const tab3 = document.getElementById("tab3");
+
+const h1 = document.getElementById("h1");
+
+tab1.addEventListener("change", function(){
+  type = 1;
+  if(display) {
+    main(result,type);
+  };
+});
+
+tab2.addEventListener("change", function(){
+  type = 2;
+  if(display) {
+    main(result,type);
+  };
+});
+
+tab3.addEventListener("change", function(){
+  type = 3;
+  if(display) {
+    main(result,type);
+  };
+});
+
 input.addEventListener("change", function() {
-  const result = input.files;
-  main(result);
+  result = input.files;
+  main(result,type);
 });
 
 document.addEventListener("DOMContentLoaded",() => {
@@ -19,22 +57,24 @@ document.addEventListener("DOMContentLoaded",() => {
     e.preventDefault();
     dropArea.classList.add("drag");
   });
-  dropArea.addEventListener("dragleave",(e) => {
+  dropArea.addEventListener("dragleave",() => {
     dropArea.classList.remove("drag");
   });
   dropArea.addEventListener("drop",(e) => {
     e.preventDefault();
     dropArea.classList.remove("drag");
-    const result = e.dataTransfer.files;
-    main(result);
+    result = e.dataTransfer.files;
+    main(result,type);
   });
 });
 
 /**
  * メイン処理を実行する関数
  * @param {FileList} result 
+ * @param {number} type
  */
-const main = function(result){
+const main = function(result,type){
+  display = true;
   const reader = new FileReader();
   reader.readAsText(result[0]);
   reader.addEventListener("load", function() {
@@ -45,7 +85,7 @@ const main = function(result){
 
     const quotationTable = new QuotationTable(details);
     const myCompany = new MyCompany(company);
-    const clientCompany = new ClientCompany(client,quotationTable.comma(quotationTable.grandTotal));
+    const clientCompany = new ClientCompany(client,type,quotationTable.comma(quotationTable.grandTotal));
     const dateAndNumber = new DateAndNumber(dateAndNumbers);
     quotationTable.show();
     myCompany.show();
@@ -53,6 +93,16 @@ const main = function(result){
     dateAndNumber.show();
 
     input.style.display = "none";
-    document.getElementById("h1").textContent = "見積書";
+    switch(type) {
+      case 1:
+        h1.textContent = "見積書";
+        break;
+      case 2:
+        h1.textContent = "納品書";
+        break;
+      case 3:
+        h1.textContent = "請求書";
+        break;
+    }
   });
 }

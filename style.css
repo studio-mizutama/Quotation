@@ -1,3 +1,32 @@
+nav {
+  display: none;
+}
+
+.tab {
+  width: calc(100%/3);
+  padding:12px 0;
+  background-color: #eee;
+  border-bottom: 3px solid #eaa4a4;
+  text-align: center;
+  display: block;
+  color: #eaa4a4;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+.tab:hover {
+  opacity: 0.6;
+}
+input[name="tab"] {
+  display: none;
+}
+
+input:checked + .tab {
+  background-color: #eaa4a4;
+  color: #eee;
+}
+
 #date-and-number {
   text-align: right;
 }
@@ -98,5 +127,11 @@ dd {
   }
   .drag {
     background: #eee;
+  }
+  nav {
+    display: table;
+    height: inherit;
+    width: 100%;
+    margin-bottom: 3mm;
   }
 }
