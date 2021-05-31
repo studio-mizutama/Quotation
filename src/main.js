@@ -1,4 +1,4 @@
-import MyCompany from "./campany.js";
+import MyCompany from "./company.js";
 import QuotationTable from "./table.js";
 import ClientCompany from "./client.js"
 import DateAndNumber from "./date.js"
@@ -86,13 +86,15 @@ const main = function(result,type){
     const quotationTable = new QuotationTable(details);
     const myCompany = new MyCompany(company);
     const clientCompany = new ClientCompany(client,type,quotationTable.comma(quotationTable.grandTotal));
-    const dateAndNumber = new DateAndNumber(dateAndNumbers);
+    const dateAndNumber = new DateAndNumber(dateAndNumbers,company,type);
     quotationTable.show();
     myCompany.show();
     clientCompany.show();
     dateAndNumber.show();
 
     input.style.display = "none";
+    h1.style.letterSpacing = "1em";
+    h1.style.textIndent = "1em";
     switch(type) {
       case 1:
         h1.textContent = "見積書";
