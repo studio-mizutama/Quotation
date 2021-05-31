@@ -1,0 +1,27 @@
+{
+  "details": [
+    {
+      "description": "項目1",
+      "quantity": 1,
+      "unit": "式",
+      "price": 30000
+    },
+    {
+      "description": "項目2",
+      "quantity": 5,
+      "unit": "式",
+      "price": 10000
+    }
+  ],
+  "client": {
+    "name": "株式会社クライアント",
+    "title": "Webサイト構築"
+  },
+  "dateAndNumbers": {
+    "date": "2021-05-30",
+    "no": "2021-05-30-01",
+    "validUntil": "2021-06-10",
+    "delivery": "2021-06-30",
+    "paymentMethod": "月末締め翌月末払い"
+  }
+}

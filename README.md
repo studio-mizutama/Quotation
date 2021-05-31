@@ -44,7 +44,7 @@ Make `json` file like this format.
     "quantity": 1,
     "unit": "式",
     "price": 100
-  },
+  }
 ],
 "client":
   {

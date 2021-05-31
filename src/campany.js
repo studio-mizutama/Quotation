@@ -16,7 +16,9 @@ export default class MyCompany {
 
     this.headerRight = document.getElementById("header-right");
     
+    this.logoImg.setAttribute("alt", "");
     this.logoImg.setAttribute("src", json["logoPath"]);
+    this.sealImg.setAttribute("alt", "");
     this.sealImg.setAttribute("src", json["sealPath"]);
     this.logoImg.style.maxWidth = "100%";
     this.logoImg.style.maxHeight = "10mm";
