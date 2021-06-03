@@ -12,8 +12,8 @@ export default class ClientCompany {
     this.name = document.createElement("h2");
     this.title = document.createElement("h3");
     this.total = document.createElement("h2");
-    this.name.textContent = json["name"] + "　御中";
-    this.title.textContent = "件名：　" + json["title"];
+    this.name.textContent = json["name"] + " 御中";
+    this.title.textContent = "件名： " + json["title"];
     this.p = document.createElement("p");
     switch(type) {
       case 1:
