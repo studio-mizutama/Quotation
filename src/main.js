@@ -2,7 +2,7 @@ import MyCompany from "./company.js";
 import QuotationTable from "./table.js";
 import ClientCompany from "./client.js"
 import DateAndNumber from "./date.js"
-import company from "../config/config.js"
+import company from "../sampleConfig/config.js"
 
 /**
  * @param {number} 1: 見積書 2:納品書 3:請求書
@@ -17,6 +17,7 @@ let display = false;
 let result = [];
 
 const input = document.getElementById("input-file");
+const useSample = document.getElementById("use-sample");
 
 const tab1 = document.getElementById("tab1");
 const tab2 = document.getElementById("tab2");
@@ -46,6 +47,43 @@ tab3.addEventListener("change", function(){
   if(display) {
     main(result,type);
   };
+});
+
+useSample.addEventListener("click", function() {
+  const blob = `
+  {
+    "details": [
+      {
+        "description": "項目1",
+        "quantity": 1,
+        "unit": "式",
+        "price": 30000
+      },
+      {
+        "description": "項目2",
+        "quantity": 5,
+        "unit": "式",
+        "price": 10000
+      }
+    ],
+    "client": {
+      "name": "株式会社クライアント",
+      "title": "Webサイト構築"
+    },
+    "dateAndNumbers": {
+      "no": "2021-05-30-01",
+      "quotationDate": "2021-05-30",
+      "validUntil": "2021-06-10",
+      "deliveryDue": "2021-06-30",
+      "paymentMethod": "月末締め翌月末払い",
+      "deliveryDate": "2021-06-30",
+      "invoiceDate": "2021-06-30",
+      "paymentDue": "2021-07-31"
+    }
+  }
+  `;
+  result[0] = new Blob([blob], {type: "application/json"});
+  main(result,type);
 });
 
 input.addEventListener("change", function() {
@@ -96,6 +134,7 @@ const main = function(result,type){
     dateAndNumber.show();
 
     input.style.display = "none";
+    useSample.style.display = "none";
     h1.style.letterSpacing = "1em";
     h1.style.textIndent = "1em";
     switch(type) {
