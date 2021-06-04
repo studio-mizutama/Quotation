@@ -109,6 +109,6 @@ const main = function(result,type){
         h1.textContent = "請求書";
         break;
     }
-    document.title += dateAndNumber.no;
+    document.title = h1.textContent + dateAndNumber.no;
   });
 }
