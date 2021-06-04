@@ -26,6 +26,7 @@ const h1 = document.getElementById("h1");
 
 tab1.addEventListener("change", function(){
   type = 1;
+  document.title = "見積書";
   if(display) {
     main(result,type);
   };
@@ -33,6 +34,7 @@ tab1.addEventListener("change", function(){
 
 tab2.addEventListener("change", function(){
   type = 2;
+  document.title = "納品書";
   if(display) {
     main(result,type);
   };
@@ -40,6 +42,7 @@ tab2.addEventListener("change", function(){
 
 tab3.addEventListener("change", function(){
   type = 3;
+  document.title = "請求書"
   if(display) {
     main(result,type);
   };
@@ -106,5 +109,6 @@ const main = function(result,type){
         h1.textContent = "請求書";
         break;
     }
+    document.title += dateAndNumber.no;
   });
 }

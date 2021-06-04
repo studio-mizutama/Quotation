@@ -9,6 +9,7 @@ export default class DateAndNumber {
    */
   constructor(json,company,type) {
     this.type = type;
+    this.no = json["no"]
     this.quotationDate = new Date(Date.parse(json["quotationDate"]));
     this.deliveryDate = new Date(Date.parse(json["deliveryDate"]));
     this.invoiceDate = new Date(Date.parse(json["invoiceDate"]));
@@ -18,6 +19,7 @@ export default class DateAndNumber {
 
     this.bank = company["bank"];
     this.branch = company["branch"];
+    this.typeOfAccount = company["typeOfAccount"];
     this.accountNumber = company["accountNumber"];
     this.accountHolder = company["accountHolder"];
 
@@ -31,15 +33,15 @@ export default class DateAndNumber {
     switch(type) {
       case 1 :
         this.dateP.textContent = this.getStringDate(this.quotationDate);
-        this.noP.textContent = "見積番号：" + json["no"];
+        this.noP.textContent = "見積番号：" + this.no;
         break;
       case 2 :
         this.dateP.textContent = this.getStringDate(this.deliveryDate);
-        this.noP.textContent = "注文番号：" + json["no"];
+        this.noP.textContent = "注文番号：" + this.no;
         break;
       case 3 :
         this.dateP.textContent = this.getStringDate(this.invoiceDate);
-        this.noP.textContent = "注文番号：" + json["no"];
+        this.noP.textContent = "注文番号：" + this.no;
         break;
     }
 
@@ -50,6 +52,7 @@ export default class DateAndNumber {
     this.paymentMethodDd.textContent = json["paymentMethod"];
 
     this.bankDd.innerHTML = this.bank + "　" + this.branch + "<br><br>" 
+    + "口座種別　" + this.typeOfAccount + "<br><br>"
     + "口座番号　" + this.accountNumber + "<br><br>"
     + "口座名義　" + this.accountHolder;
 

@@ -16,10 +16,15 @@ const company =
     "address": "",
     "tel": "",
     "logoPath": "./images/logo.svg",
-    "sealPath": "./images/seal.svg"
+    "sealPath": "./images/seal.svg",
+    "bank": "＊＊銀行",
+    "branch": "＊＊支店",
+    "typeOfAccount": "普通",
+    "accountNumber": "111-1111111",
+    "accountHolder": ""
   };
 
-  export default company;
+export default company;
 ```
 
 ### Set Images
